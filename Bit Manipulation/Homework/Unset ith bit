@@ -1,0 +1,22 @@
+/* Set the ith bit to 0
+Example: 
+N=10->1010,pos=2;
+Output: 1000=>8
+
+Explanation:
+  => By creating a mask of 0 in given position and 1 in all other bits
+  => AND ing the given number with the mask, unsets the bit at the respective position 
+   N => 1010
+mask => 1101 (&)
+ Ans => 1000
+ */
+#include <stdio.h>
+int unsetIthBit(int N,int pos){
+    return N&(~(1<<(pos-1)));
+}
+int main(){
+    int N,pos;
+    scanf("%d %d",&N,&pos);
+    printf("%d",unsetIthBit(N,pos));
+    return 0;
+}
