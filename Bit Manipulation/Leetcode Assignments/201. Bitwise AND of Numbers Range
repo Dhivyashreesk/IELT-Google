@@ -1,0 +1,34 @@
+/* Given two integers left and right that represent the range [left, right], return the bitwise AND of all numbers in this range, inclusive.
+
+Example 1:
+Input: left = 5, right = 7
+Output: 4
+
+Example 2:
+Input: left = 0, right = 0
+Output: 0
+
+Example 3:
+Input: left = 1, right = 2147483647
+Output: 0
+
+*/
+/* Logic Explanation
+
+1. MSBs (Most Significant Bit) in a binary numbers changes the least compared to the LSBs (Least Significant Bit)
+2. We Right-shift 'left' and 'right', until the MSBs of left and right match.
+3. If MSBs of 'left' and 'right' match, then those specific MSBs are same for all the numbers in the range(left, right)
+both inclusive.
+
+*/
+class Solution {
+    public int rangeBitwiseAnd(int left, int right) {
+        int ans=0;
+        while(left != right){ // right shifting until (left == right)
+            left >>= 1;
+            right >>= 1;
+            ans++;
+        }
+        return left<<ans;
+    }
+}
