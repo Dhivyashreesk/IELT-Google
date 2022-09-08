@@ -1,0 +1,56 @@
+/* Given an integer N, we have to count the number of set bits in its binary representation
+Time Complexity:
+  BEST CASE: O(1)
+  WORST CASE: O(log N)
+Example:
+  10 -> 1010
+Output: 2 (No.of.1's)
+
+In C++, the inbuilt fuction __builtin_popcount will give the count of set bits;
+int countSetBits4(int N){
+    return __builtin_popcount(N);
+}
+
+*/
+#include <stdio.h>
+
+// method 1-not working for 2^n cases
+int method1(int N){
+    int count= 0;
+    for(int i=1; i<N; i<<=1){
+        if(N&i){
+            count++;
+        }
+    }
+    return count;
+}
+
+// method 2
+int method2(int N){
+    int count = 0;
+    while(N){
+        N = N&(N-1);
+        count++;
+    }
+    return count;
+}
+
+// method 3
+int method3(int N){
+    int count = 0;
+    while(N){
+        count += N&1;
+        N >>=1;
+    }
+    return count;
+}
+
+int main(){
+    int N; 
+    scanf("%d",&N);
+    printf("%d\n",method1(N));
+    printf("%d\n",method2(N));
+    printf("%d",method3(N));
+    return 0;
+}
+//Time Complexity: O(log N)
