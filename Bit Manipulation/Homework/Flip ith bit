@@ -1,0 +1,22 @@
+/*Flip ith bit of a number N, where position on which it has to be flipped is given
+
+Example:
+ N-> 10 = 1010 ,pos =2;
+Output: 1000 -> 8;
+Explanation:
+  10 -> 1010   pos=2;
+mask -> 0010 (^)
+ ans -> 1000
+ 
+*/
+
+#include <stdio.h>
+int flipIthBit(int N, int pos){
+    return N ^ (1<<(pos-1)) ;
+}
+int main(){
+    int N,pos; 
+    scanf("%d %d",&N,&pos);
+    printf("%d",flipIthBit(N, pos));
+    return 0;
+}
