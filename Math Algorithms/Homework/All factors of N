@@ -1,0 +1,23 @@
+/* To find all the factors of a number N
+Example:
+100 => 1,2,4,5,10,20,25,50,100
+*/
+#include <stdio.h>
+void findFactors(int N){
+    for(int i=1; i*i<=N; i++){
+        if(N%i==0){
+            printf("%d ",i);
+            if(N/i != i){
+                printf("%d ",N/i);
+            }
+        }
+    }
+}
+
+int main(){
+    int N;
+    scanf("%d",&N);
+    findFactors(N);
+    return 0;
+}
+//Time Complexity: O(root N)
