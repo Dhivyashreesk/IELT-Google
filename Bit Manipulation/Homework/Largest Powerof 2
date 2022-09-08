@@ -1,0 +1,36 @@
+/*To find the largest power of 2, which is less than or equal to N;
+Example:
+Input: 1025
+Output: 1024
+
+Input: 15
+Output: 8
+*/
+#include <stdio.h>
+// Method 1 
+// TC : O(log(N))
+int largestPower1(int N){
+    while(N && N&(N-1)){
+        N = N&(N-1);
+    }
+    return N;
+}
+
+// Method 2
+// TC : O(log(N))
+int largestPower2(int N){
+    int ctr = 0;
+    while(N != 1){
+        N >>=1;
+        ctr++;
+    }
+    return 1 << ctr;
+}
+
+int main(){
+    int N; 
+    scanf("%d",&N);
+    printf("%d\n",largestPower1(N));
+    printf("%d",largestPower2(N));
+    return 0;
+}
