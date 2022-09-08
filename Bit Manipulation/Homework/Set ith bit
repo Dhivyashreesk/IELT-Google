@@ -1,0 +1,23 @@
+/* To set the ith bit of a number
+Example:
+  N=10->1010, i=3
+Output:
+  1110 => 14
+Explanation:
+=> Creating a mask with 1 in given position and make all other bits as 0;
+=> OR ing with given number makes the bit set;
+   10-> 1010
+ mask-> 0100 (|)
+  Ans-> 1110
+ */
+#include <stdio.h>
+
+int setIthBit(int N,int pos){
+  return N|(1<<pos-1);
+}
+
+int main(){
+    int N,pos;
+    scanf("%d %d",&N,&pos);
+    printf("%d",setIthBit(N,pos));
+}
