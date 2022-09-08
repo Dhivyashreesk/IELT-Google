@@ -1,0 +1,33 @@
+/* Given a number N, we have to return the position of rightost 1;
+Example:
+(i) N=10;
+Output:
+  Rightmost One = 2
+  Rightmost One position = 2
+ 
+(ii) N=128
+Output:
+  Rightmost One = 128
+  Rightmost One position = 8
+*/
+#include <stdio.h>
+int rightMostOne(int N){
+    return N & (~N+1) ;
+}
+
+int rightMostOnePosition(int N){
+    int pos = 0;
+    while( (N&1) ==0 ){
+        N >>= 1;
+        pos++;
+    }
+    return pos+1;
+}
+
+int main(){
+    int N;
+    scanf("%d",&N);
+    printf("%d\n",rightMostOne(N));
+    printf("%d",rightMostOnePosition(N));
+    return 0;
+}
