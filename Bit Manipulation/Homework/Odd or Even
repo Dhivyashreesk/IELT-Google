@@ -1,0 +1,16 @@
+/* Given an integer N, check whether it odd or even
+Example: 
+Input: 2 Output: Even
+Input: 9 Output: Odd
+
+Logic:
+Last Bit of Odd numbers is 1 & Last Bit of Even numbers is 0
+By checking the Last Bit, by ANDing with 1, Odd integers will give 1 & Even integers will give 0;
+*/
+#include <stdio.h>
+int main(){
+    int N;
+    scanf("%d",&N);
+    (N&1)==0?printf("Even"):printf("Odd");
+    return 0;
+}
