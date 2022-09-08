@@ -1,0 +1,44 @@
+/*An integer and the position to be find is given, Find whether the bit in the given position is set or not
+
+By creating a mask with 1 in given position and making all other bits to 0
+
+Example:
+N=10,pos=2;
+
+Output:
+Set
+
+Explanation:
+i) pos=2;
+ 10->N=1010 
+  Mask=0010 (&)
+   Ans=0010
+   
+ii) pos=3;
+7-> N=0111
+ Mask=0100 (&)
+  Ans=0100
+  
+iii)pos=1;
+8-> N=1000
+ Mask=0001 (&)
+  Ans=0000
+  
+*/
+#include <stdio.h>
+int isSetBit(int N, int pos){
+    return ( N & (1<<(pos-1)) )!= 0;
+}
+
+int main(){
+    int N, pos; 
+    scanf("%d %d",&N,&pos);
+    if(isSetBit(N,pos)){
+        printf("Set");
+    }
+    else{
+        printf("Not Set");//0
+    }
+    return 0;
+}
+Time Complexity: O(1)
