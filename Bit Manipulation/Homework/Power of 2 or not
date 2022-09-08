@@ -1,0 +1,23 @@
+/*Given a number N and Find if it is a power of 2 or not.
+Logic: The number of set bit is always 1 for K^N
+For example: 
+For base 10 => 10^N => 10^0 = 1, 10^1 = 10 ,10^2 = 100,.. The no.of set bits is always 1 and it will be in MSB
+For base 2 => 2^N => 2^0 = 1, 2^1= 2= 10 ,2^2= 4= 100,.. The no.of set bits is always 1 and it will be in MSB
+For base-K => K^N => The no.of set bits is always 1
+*/
+#include <stdio.h>
+int powerOf2(int N){
+    if(N>0 && (N&(N-1))==0)
+      return 1;
+    return 0;
+}
+
+int main(){
+    int N; 
+    scanf("%d",&N);
+    if(powerOf2(N))
+        printf("Yes");
+    else
+        printf("No");
+    return 0;
+}
