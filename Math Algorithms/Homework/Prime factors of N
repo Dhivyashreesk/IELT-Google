@@ -1,0 +1,34 @@
+/*Given a number N, to find all the prime factors of it. 
+Example:
+Input: 12   Output: 2 2 3
+Input: 100  Output: 2 2 5 5
+Input: 315  Output: 3 3 5 7
+
+Logic:
+If we start dividing the number by the smallest possible prime number (2) then all of its 
+multiples or composite numbers will automatically be removed before we actually reach that number.
+
+Example: We can divide 12 by 2 two times and remove that factors from 12 to get 3 
+thus making sure that composite number 4 (multiple of 2) does not occur at any later point of time.
+
+*/
+
+#include <stdio.h>
+void primeFactors(int N){
+    for(int i=2; i*i<=N; i++){
+        while(N%i==0){
+            N/=i;
+            printf("%d ",i);
+        }
+    }
+    if(N>1){
+        printf("%d",N);
+    }
+}
+
+int main(){
+    int N;
+    scanf("%d",&N);
+    primeFactors(N);
+    return 0;
+}
