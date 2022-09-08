@@ -1,0 +1,30 @@
+/* Given number N is prime or not;
+To solve this we can check,
+=> it is divisible from i=2 to i=N-1
+=> it is divisible from i=2 to i=N/2, because there is no multiple behind N/2
+=> We can check upto N^2
+Explanation:
+ N=36
+ The multiples are 1,2,3,4,6,9,12,18,36
+ The multiples occur in the pattern of a subsets, where N/a=b => 36/1=36, 36/2=18, 36/6=6;
+ N/a=b => N=a*b => In case of a=6, then b=6, which implies that a=b, then N/a=a => N=a^2 => a=N^(1/2);
+ So we can check up to N^2 term;
+*/
+#include <stdio.h>
+#include <stdbool.h>
+bool checkPrimeOrNot(int N){
+    for(int i=2;i*i<=N;i++){
+        if(N%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    int N;
+    scanf("%d",&N);
+    printf(checkPrimeOrNot(N)?"Yes":"No");
+    return 0;
+}
+Time Complexity: O(root N)
