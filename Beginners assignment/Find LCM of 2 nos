@@ -21,3 +21,21 @@ int main()
 }
 
 /*Approach 2:
+1.The largest of 2 numbers is made as LCM. 
+2. And incrementing the LCM until both A & B are divisinle by LCM
+*/
+#include <stdio.h>
+int main() {
+	int x, y;
+	printf("Enter two positive integers: ");
+	scanf("%d %d", &x, &y);
+        int ans = (x > y) ? x : y;
+	while (1) {
+		if ans % x == 0 && ans % y == 0) {
+			printf("The LCM obtained from %d and %d is %d.", x, y, res);
+			break;
+		}
+		++res;
+	}
+	return 0;
+}
