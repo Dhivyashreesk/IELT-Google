@@ -1,0 +1,21 @@
+/*To find GCD of 2 numbers.
+Using Euclediean algorithm:
+  Time Complexity: O(log(N))
+Example:
+  if A==0? return B;
+  else return gcd(B%A, A);
+A = 28 => 16 => 12 => 4 => 0  then GCD = 4;
+B = 16 => 28 => 16 => 12 => 4
+  if the bigger number is A and smaller one is in B, then it takes one step o rearrange it;
+*/
+#include <stdio.h>
+int gcd(int A,int B){
+    return A==0? B:gcd(B%A, A);
+}
+int main()
+{
+    int A,B;
+    scanf("%d%d",&A,&B);
+    printf("%d",gcd(A,B));
+    return 0;
+}
