@@ -1,0 +1,23 @@
+//Given 2 numbers, to find their LCM
+/*Approach 1:
+Using GCD:
+  To find LCM: (A*B)/gcd(A,B)
+  GCD of 15 & 25 is 5;
+  Then LCM is (15*25)/5 = 375/5 = 75
+*/
+#include <stdio.h>
+int gcd(int A,int B){
+    return A==0? B:gcd(B%A, A);
+}
+int lcm(int A,int B){
+    return (A*B)/gcd(A,B);
+}
+int main()
+{
+    int A,B;
+    scanf("%d%d",&A,&B);
+    printf("%d",lcm(A,B));
+    return 0;
+}
+
+/*Approach 2:
