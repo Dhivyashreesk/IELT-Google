@@ -1,0 +1,59 @@
+/*Given an array of integers, our task is to write a program that efficiently finds the second largest element present in the array. 
+Example:
+  Input: arr[] = {10, 50, 20, 1, 34, 23}
+  Output: The second largest element is 34.
+Approach 1: Time complexity= O(N);
+i) Initialize the largest as arr[0];
+ii) Start traversing the array from array[1],
+   a) If the current element in array say arr[i] is greater
+      than largest. Then update largest and secondLargest as,
+      secondLargest = largest
+      largest = arr[i]
+   b) If the current element is in between largest and secondLargest,
+      then update secondLargest to store the value of current variable as
+      secondLargest = arr[i]
+iii) Return the value stored in second.
+*/
+Code:
+#include <stdio.h>
+#include <limits.h>
+int findSecondLargest(int arr[],int n){
+    int largest=arr[0],secondLargest=-1;
+    for(int i=1;i<n;i++){
+        if(arr[i]>largest){
+            secondLargest=largest;
+            largest=arr[i];
+        }
+        else if(arr[i]>secondLargest && arr[i]<largest){
+            secondLargest=arr[i];
+        }
+    }
+    return secondLargest;
+}
+int main()
+{
+    int arr[]= {10, 50, 20, 1, 34, 23};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    printf("The second largest element is %d",findSecondLargest(arr,n));
+    return 0;
+}
+
+/*Approach2:
+ Sort the array in ascending order and then return the second largest element which is in the index n-2;
+*/
+Code:
+import java.util.*;
+class HelloWorld{
+    static void findSecondLargest(int arr[],int n){
+        Arrays.sort(arr);
+        System.out.print("The second largest element is "+ arr[n-2]);
+        return;
+    }
+    public static void main(String[] args)
+    {
+    int arr[] = {10, 50, 20, 1, 34, 23};
+    int n = arr.length;
+    findSecondLargest(arr, n);
+    }
+}
+ 
