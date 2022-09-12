@@ -1,0 +1,13 @@
+/*To find the sum of N natural numbers
+Example:10
+10 => 1+2+3+4+5+6+7+8+9+10=55
+
+Formula for finding sum of N natural numbers is n*(n+1)/2
+*/
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d",&n);
+    printf("Sum of first %d natural numbers is %d",n,(n*(n+1))/2);
+    return 0;
+}
