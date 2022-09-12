@@ -1,0 +1,68 @@
+/*To find Nth Catalan number:
+
+C(0)=1,C(1)=1,C(2)=2,C(3)=5,C(4)=14,C(5)=42,...
+C(2)=C(0)C(1)+C(1)C(0), C3= C(0)C(2)+C(1)C(1)+C(2)C(0),...
+C(N)= C(0)C(N-1)+C(1)C(N-2)+...+C(i)C(N-i-1)+...+C(N-2)C(1)+C(N-1)C(0)
+*/
+//Recursive Solution:
+#include<stdio.h> 
+// A recursive function to find nth catalan number 
+unsigned long int catalan(int n) 
+{ 
+	// Base case 
+	if (n <= 1) 
+	    return 1; 
+
+	// catalan(n) is sum of catalan(i)*catalan(n-i-1) 
+	unsigned long int result = 0; 
+	for (int i=0; i<n; i++) 
+		result += catalan(i)*catalan(n-i-1); 
+
+	return result; 
+} 
+
+// Driver program to test above function 
+int main() 
+{ 
+  int n;
+  scanf("%d",&n);
+	printf("%lu ",catalan(n)); 
+	return 0; 
+} 
+//Time complexity is obviously in order of exponential
+
+//Dynamic Programming
+#include<stdio.h> 
+
+// A dynamic programming based function to find nth 
+// Catalan number 
+unsigned long int catalanDP(int n) 
+{ 
+	// Table to store results of subproblems 
+	unsigned long int catalan[n+1]; 
+
+	// Initialize first two values in table 
+	catalan[0] = catalan[1] = 1; 
+
+	// Fill entries in catalan[] using recursive formula 
+	for (int i=2; i<=n; i++) 
+	{ 
+		catalan[i] = 0; 
+		for (int j=0; j<i; j++){
+			catalan[i] += catalan[j] * catalan[i-j-1]; 
+		}
+	} 
+
+	// Return last entry 
+	return catalan[n]; 
+} 
+
+// Driver program to test above function 
+int main() 
+{ 
+	int n;
+	scanf("%d",&n);
+	printf("%lu",catalanDP(n));
+	return 0; 
+} 
+//Time Complexity: O(N^2)
