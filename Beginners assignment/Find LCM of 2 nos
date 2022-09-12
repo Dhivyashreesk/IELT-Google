@@ -32,10 +32,10 @@ int main() {
         int ans = (x > y) ? x : y;
 	while (1) {
 		if ans % x == 0 && ans % y == 0) {
-			printf("The LCM obtained from %d and %d is %d.", x, y, res);
+			printf("The LCM obtained from %d and %d is %d.", x, y, ans);
 			break;
 		}
-		++res;
+		ans++;
 	}
 	return 0;
 }
