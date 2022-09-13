@@ -1,0 +1,25 @@
+/*Given the coordinates of the vertices of a triangle, the task is to find the area of this triangle.
+
+Approach: If given coordinates of three corners, we can apply the Shoelace formula.
+  
+  Area= 1/2[(x1y2 + x2y3 + x3y1)-(x2y1 + x3y2 + x1y3)]
+*/
+import java.io.*;
+import java.math.*;
+public class Main {
+	public static void main (String[] args)
+	{
+		double X[] = {0, 2, 4};
+		double Y[] = {1, 3, 7};
+		int j = 2;
+		double area=0,ans;
+		for (int i = 0; i < 3; i++)
+		{
+			area += (X[j] + X[i]) * (Y[j] - Y[i]);
+			j = i;
+		}
+		ans=Math.abs(area / 2.0);
+		System.out.print(ans);
+	}
+}
+//Time Complexity: O(n);
