@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>> getPascalTriangle(int N){
+    vector<vector<int>> pascal(N+1);
+
+    for(int i=0; i<N; i++){
+        for(int j=0; j<=i; j++){
+            if(j==0 || j==i){
+                pascal[i].push_back(1);
+            }else{
+                pascal[i].push_back(pascal[i-1][j]+pascal[i-1][j-1]);
+            }
+        }
+    }
+    return pascal;
+}
+
+int main(){
+    int N; 
+    cin >> N;   
+
+    vector<vector<int>> pascal = getPascalTriangle(N); 
+
+    for(auto i : pascal){
+        for(auto j : i){
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
