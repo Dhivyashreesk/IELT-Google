@@ -1,0 +1,27 @@
+/* Given an integer x, return true if x is palindrome integer.
+An integer is a palindrome when it reads the same backward as forward.
+
+For example, 121 is a palindrome while 123 is not.
+*/
+#include <stdio.h>
+#include <stdbool.h>
+bool isPalindrome(int x) {
+        long rev=0;
+        long temp=x;
+        if(x<0)
+            return false;
+        while(x!=0){
+            rev=(rev*10)+(x%10);
+            x=x/10;
+        }
+        if(rev==temp)
+            return true;
+        
+        return false;
+}
+int main() {
+    int n;
+    scanf("%d",&n);
+    printf(isPalindrome(n)?"True":"False");
+    return 0;
+}
