@@ -1,0 +1,76 @@
+class Solution {
+     
+    public int myAtoi(String str) {
+        
+        char[] ch = str.toCharArray();   
+        int n = ch.length;
+        int size = 0;
+        boolean positive = true;        
+        boolean plusSeen = false, minusSeen = false;
+        boolean isDigit = false;
+        
+        for(int i=0; i < n; i++) {
+            isDigit = ch[i] - '0' >= 0 && ch[i] - '0' <= 9;            
+            if((plusSeen || minusSeen) && !isDigit) {
+                 break;
+            }
+            if(ch[i] == '+') {
+                plusSeen = true;
+            }
+            if(ch[i] == '-') {
+                minusSeen = true;
+            }
+           
+            if(size == 0 && ch[i] == ' ') {
+                //don't do anything 
+            }
+            else if(size == 0 && ch[i] == '-') { 
+                positive = false;
+            }
+            else if(size == 0 && ch[i] != ' ' && ch[i] != '+') {
+                if(isDigit){
+                    ch[size++] = ch[i];
+                }
+                else {
+                    break;
+                }
+            }
+            else if(size > 0 && isDigit){
+                ch[size++] = ch[i];
+            }
+            else if(size > 0  && !isDigit) {
+                break;
+            }
+        }
+        
+        if(size == 0) {
+            return 0;
+        }
+        
+        
+        long result = 0;
+        for(int i=0;i <size; i++) {
+           
+            //prevResult = result;
+            result = (ch[i] - '0') + (result * 10);
+           
+            if(positive && result > Integer.MAX_VALUE) {
+                return Integer.MAX_VALUE;
+            }
+            else if(!positive && -result < Integer.MIN_VALUE) {
+                return Integer.MIN_VALUE;
+            }
+            
+        }
+        
+        //System.out.println(result);
+        
+        if(!positive) {
+            result *= -1;
+        }
+        
+        
+        return (int)result;
+    }
+    
+}
