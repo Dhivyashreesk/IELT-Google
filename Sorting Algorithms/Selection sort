@@ -1,0 +1,40 @@
+/*Selection sort:
+=> Pick the minimum element out and swap it;
+
+a[]=[5,2,7,3,1] => [1,2,7,3,5] => [1,2,7,3,5] => [1,2,3,7,5] => [1,2,3,5,7]
+     i j->            i j->            i j->            i j
+     
+*/
+#include <bits/stdc++.h>
+using namespace std;
+
+void selectionSort(vector<int>& arr){
+    for(int i=0; i<arr.size()-1; i++){
+        int minIndex = i;
+        for(int j = i+1; j<arr.size(); j++){
+            if(arr[minIndex]>arr[j]){
+                minIndex = j;
+            }
+        }
+        swap(arr[minIndex], arr[i]);
+    }
+}
+int main(){
+    int N;
+    cin >> N;
+
+    vector<int> arr(N);
+    for(int &i : arr)
+        cin >> i;
+
+    selectionSort(arr);
+    
+    for(int i : arr)
+        cout << i << " ";
+}
+/*Time Complexity:
+    Best Case : O(N^2)
+    Worst Case : O(N^2)
+    Average Case : O(N^2)
+It does not depend on the nature of the input
+*/
