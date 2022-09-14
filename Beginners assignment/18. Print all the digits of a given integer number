@@ -1,0 +1,24 @@
+/* To print all the digits of a given integer
+Input: N = 12
+Output: 1, 2
+
+Input: N = 1032
+Output: 1, 0, 3, 2
+*/
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d",&n);
+    int temp=0;
+    while(n>0){
+        temp*=10;
+        temp+=(n%10);
+        n/=10;
+    }
+    printf("The digits of the integer are ");
+    while(temp>0){
+        printf("'%d' ",temp%10);
+        temp/=10;
+    }
+    return 0;
+}
