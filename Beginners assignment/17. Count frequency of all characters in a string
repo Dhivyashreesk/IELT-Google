@@ -1,0 +1,21 @@
+/*To count the frequency of all characters present in the lowercase string
+Input: helloworld
+h->1 e->1 l->3 o->2 w->1 r->1 d->1
+*/
+import java.util.Scanner;
+class Solution {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        int count[]=new int [26];
+        for(int i=0;i<str.length();i++){
+            count[str.charAt(i)-'a']++;
+        }
+        for(int i=0;i<str.length();i++){
+            if(count[str.charAt(i)-'a']>0){
+                System.out.println(str.charAt(i)+"->"+count[str.charAt(i)-'a']);
+                count[str.charAt(i)-'a']=0;
+            }
+        }
+    }
+}
