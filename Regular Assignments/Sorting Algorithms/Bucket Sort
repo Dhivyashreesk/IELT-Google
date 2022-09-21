@@ -1,5 +1,4 @@
-// Java program to sort an array
-// using bucket sort
+//Bucket Sorting for decimal numbers:
 import java.util.*;
 import java.util.Collections;
 
@@ -54,3 +53,20 @@ class Solution {
   }
  }
 }
+/*Bucket Sorting for Integer elements
+Find range = (max - min) / noOfBuckets
+bucketIndex = (array[i] - minimum) / range
+Finally, sort and gather
+For integer elements, we need to follow the following algorithm:
+
+ 1. Calculate the maximum and the minimum element of the array
+ 2. Calculate the range: range = (maximum - minimum) / n, where n is the number of buckets (Given as parameter)
+ 3. Create n empty buckets and initialize them with 0
+ 4. Loop through the unsorted array and perform the following: a) Calculate bucketIndex bucketIndex = (array[i] - minimum) / range b) Insert the ith element of the array into the bucket[bucketIndex]
+ 5. Sort the individual buckets
+ 6. Gather all the elements together
+ */
+Time Complexity:
+Best Case Time Complexity: O(n+k)
+Average Case Time Complexity: O(n)
+Worst Case Time Complexity: O(n^2)
