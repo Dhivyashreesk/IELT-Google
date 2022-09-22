@@ -3,13 +3,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 class Solution {
 	// partition function similar to quick sort
-	// Considers last element as pivot and adds
-	// elements with less value to the left and
-	// high value to the right and also changes
-	// the pivot position to its respective position
-	// in the final array.
-	public static int partition(int[] arr, int low,
-								int high)
+	public static int partition(int[] arr, int low,int high)
 	{
 		int pivot = arr[high], pivotloc = low;
 		for (int i = low; i <= high; i++) {
@@ -30,14 +24,7 @@ class Solution {
 
 		return pivotloc;
 	}
-
-	// finds the kth position (of the sorted array)
-	// in a given unsorted array i.e this function
-	// can be used to find both kth largest and
-	// kth smallest element in the array.
-	// ASSUMPTION: all elements in arr[] are distinct
-	public static int kthSmallest(int[] arr, int low,
-								int high, int k)
+	public static int kthSmallest(int[] arr, int low,int high, int k)
 	{
 		// find the partition
 		int partition = partition(arr, low, high);
@@ -57,8 +44,6 @@ class Solution {
 		else
 			return kthSmallest(arr, low, partition - 1, k);
 	}
-
-	// Driver Code
 	public static void main(String[] args)
 	{
         Scanner sc=new Scanner(System.in);
