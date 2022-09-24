@@ -25,8 +25,7 @@ int mergeSort(int arr[], int temp[], int left, int right)
     return invCount;
 }
   
-/* This function merges two sorted arrays
-and returns inversion count in the arrays.*/
+/* This function merges two sorted arrays and returns inversion count in the arrays.*/
 int merge(int arr[], int temp[], int left, int mid,
           int right)
 {
