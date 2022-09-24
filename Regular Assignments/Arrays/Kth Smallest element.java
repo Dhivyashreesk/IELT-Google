@@ -58,10 +58,7 @@ class Solution {
 		}
 		else {
 			// find kth smallest value
-			System.out.println(
-				kPosition+"th smallest element in the array : "
-				+ kthSmallest(arr, 0, n- 1,
-							kPosition));
+			System.out.println(kPosition+"th smallest element in the array : "+ kthSmallest(arr, 0, n- 1,kPosition));
 		}
 	}
 }
